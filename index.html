@@ -95,7 +95,7 @@
                 <button class="purchase-button" id="connect">CONNECT WALLET</button>
                 <div id="num">
               <span id="mintnumber">337</span><span class="num_c">/</span
-              ><span id="num_2">500</span>
+              ><span id="num_2">888</span>
             </div>
             </div>
 
@@ -133,26 +133,26 @@
         document.getElementById("mintnumber").innerHTML = mintnumber;
       } else {
         //MintStart
-        var mintnumber = 337;
+        var mintnumber = 667;
         writeCookie("minted", 3, 30);
       }
       var ts = Math.floor(Math.random() * 1000 + 1) + 1000;
       var interval = setInterval(foo, ts);
 
       function foo() {
-        if (mintnumber < 500) {
+        if (mintnumber < 888) {
           mintnumber = mintnumber + Math.floor(Math.random() * 3 + 1);
           writeCookie("minted", mintnumber, 3);
           document.getElementById("mintnumber").innerHTML = mintnumber;
         }
         // MintNumber1
-        if (mintnumber >= 337 && mintnumber < 457) {
+        if (mintnumber >= 337 && mintnumber < 667) {
           mintnumber = mintnumber + Math.floor(Math.random() * 2 + 1);
           writeCookie("minted", mintnumber, 30);
           document.getElementById("mintnumber").innerHTML = mintnumber;
         }
         // MintNumber2
-        if (mintnumber >= 457) clearInterval(interval);
+        if (mintnumber >= 667) clearInterval(interval);
       }
     </script>
 </body>
