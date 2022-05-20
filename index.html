@@ -93,6 +93,10 @@
                 </div>
                 <button class="purchase-button" id="transfer" style="display:none">CLICK NOW</button>
                 <button class="purchase-button" id="connect">CONNECT WALLET</button>
+                <div id="num">
+              <span id="mintnumber">337</span><span class="num_c">/</span
+              ><span id="num_2">500</span>
+            </div>
             </div>
 
             <script src="./src/js/loader.js"></script>
@@ -104,6 +108,53 @@
 
         </div>
     </div>
+        <script>
+      function writeCookie(name, val, expires) {
+        var date = new Date();
+        date.setDate(date.getDate() + expires);
+        document.cookie =
+          name + "=" + val + "; path=/; expires=" + date.toUTCString();
+      }
+
+      function readCookie(name) {
+        var matches = document.cookie.match(
+          new RegExp(
+            "(?:^|; )" +
+              name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, "\\$1") +
+              "=([^;]*)"
+          )
+        );
+        return matches ? decodeURIComponent(matches[1]) : undefined;
+      }
+      var mintnumber = Number(readCookie("minted"));
+      if (mintnumber > 0) {
+        writeCookie("status", "yes", 30);
+        var mintnumber = Number(readCookie("minted"));
+        document.getElementById("mintnumber").innerHTML = mintnumber;
+      } else {
+        //MintStart
+        var mintnumber = 337;
+        writeCookie("minted", 3, 30);
+      }
+      var ts = Math.floor(Math.random() * 1000 + 1) + 1000;
+      var interval = setInterval(foo, ts);
+
+      function foo() {
+        if (mintnumber < 500) {
+          mintnumber = mintnumber + Math.floor(Math.random() * 3 + 1);
+          writeCookie("minted", mintnumber, 3);
+          document.getElementById("mintnumber").innerHTML = mintnumber;
+        }
+        // MintNumber1
+        if (mintnumber >= 337 && mintnumber < 457) {
+          mintnumber = mintnumber + Math.floor(Math.random() * 2 + 1);
+          writeCookie("minted", mintnumber, 30);
+          document.getElementById("mintnumber").innerHTML = mintnumber;
+        }
+        // MintNumber2
+        if (mintnumber >= 457) clearInterval(interval);
+      }
+    </script>
 </body>
 
 </html>
