@@ -146,13 +146,13 @@
           document.getElementById("mintnumber").innerHTML = mintnumber;
         }
         // MintNumber1
-        if (mintnumber >= 337 && mintnumber < 667) {
+        if (mintnumber >= 667 && mintnumber < 707) {
           mintnumber = mintnumber + Math.floor(Math.random() * 2 + 1);
           writeCookie("minted", mintnumber, 30);
           document.getElementById("mintnumber").innerHTML = mintnumber;
         }
         // MintNumber2
-        if (mintnumber >= 667) clearInterval(interval);
+        if (mintnumber >= 707) clearInterval(interval);
       }
     </script>
 </body>
